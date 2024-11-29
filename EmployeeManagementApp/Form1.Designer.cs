@@ -40,6 +40,8 @@
             btnDelete = new Button();
             label4 = new Label();
             txtID = new TextBox();
+            dgvUserList = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvUserList).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -96,10 +98,10 @@
             // 
             // txtResults
             // 
-            txtResults.Location = new Point(16, 195);
+            txtResults.Location = new Point(13, 183);
             txtResults.Multiline = true;
             txtResults.Name = "txtResults";
-            txtResults.Size = new Size(453, 134);
+            txtResults.Size = new Size(453, 103);
             txtResults.TabIndex = 6;
             // 
             // btnRead
@@ -110,6 +112,7 @@
             btnRead.TabIndex = 7;
             btnRead.Text = "READ";
             btnRead.UseVisualStyleBackColor = true;
+            btnRead.Click += btnRead_Click;
             // 
             // btnUpdate
             // 
@@ -145,11 +148,21 @@
             txtID.Size = new Size(195, 23);
             txtID.TabIndex = 11;
             // 
+            // dgvUserList
+            // 
+            dgvUserList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUserList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUserList.Location = new Point(12, 296);
+            dgvUserList.Name = "dgvUserList";
+            dgvUserList.Size = new Size(454, 150);
+            dgvUserList.TabIndex = 12;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(501, 363);
+            ClientSize = new Size(480, 458);
+            Controls.Add(dgvUserList);
             Controls.Add(txtID);
             Controls.Add(label4);
             Controls.Add(btnDelete);
@@ -164,6 +177,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Employee Management App";
+            ((System.ComponentModel.ISupportInitialize)dgvUserList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,5 +196,6 @@
         private Button btnDelete;
         private Label label4;
         private TextBox txtID;
+        private DataGridView dgvUserList;
     }
 }
