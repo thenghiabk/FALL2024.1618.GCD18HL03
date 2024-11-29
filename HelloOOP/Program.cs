@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace HelloOOP
 {
@@ -26,7 +27,7 @@ namespace HelloOOP
     {
         static void Main(string[] args)
         {
-            // Create a single User object
+            // Example 1: Create a single User object
             /*
             User user1 = new User("John", 22);
             user1.Bonus = calculateBonus(user1.Age);
@@ -36,8 +37,9 @@ namespace HelloOOP
             Console.WriteLine($"Your bonus is: {user1.Bonus}");
             */
 
-            // Create a multiple User objects using an array
-            User[] users = new User[2];
+            // Example 2: Create a multiple User objects using an array
+            /*
+            User[] users = new User[3];
 
             for (int i = 0; i < users.Length; i++)
             {
@@ -45,12 +47,39 @@ namespace HelloOOP
                 users[i].Bonus = calculateBonus(users[i].Age);
             }
 
+            users[1] = null;
+
+            // display all users
             for (int i = 0; i < users.Length; i++)
             {
-                greets(users[i].Name);
-                Console.WriteLine($"Your age is: {users[i].Age}");
-                Console.WriteLine($"Your bonus is: {users[i].Bonus}");
+                if (users[i] != null)
+                {
+                    greets(users[i].Name);
+                    Console.WriteLine($"Your age is: {users[i].Age}");
+                    Console.WriteLine($"Your bonus is: {users[i].Bonus}");
+                }
+                
             }
+            */
+
+            // Example 3 : Create a multiple User objects using a List
+            List<User> users = new List<User>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                users.Add(new User(askName(), askAge()));
+            }
+
+            users.RemoveAt(1);
+
+            // display all users
+            foreach (var user in users)
+            {
+                greets(user.Name);
+                Console.WriteLine($"Your age is: {user.Age}");
+                Console.WriteLine($"Your bonus is: {user.Bonus}");
+            }
+
         }
 
         static double calculateBonus(int userAge)
